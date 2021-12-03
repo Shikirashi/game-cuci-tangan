@@ -1,18 +1,18 @@
-﻿using UnityEngine.Audio;
-using System;
+﻿using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class AudioManager : MonoBehaviour{
     public Sound[] sounds;
-
+    public Slider slider;
     public static AudioManager instance;
 
     private void Start() {
         Play("ambience");
     }
 
-    void Awake(){
-        if(instance == null){
+	void Awake() {
+        if (instance == null){
             instance = this;
         }
         else{
@@ -41,5 +41,14 @@ public class AudioManager : MonoBehaviour{
             s.source.pitch *= .5f;
         }
         s.source.Play();
+    }
+
+    public void changeVol(float volume) {
+        Sound s = Array.Find(sounds, sound => sound.name == "ambience");
+        if (s == null) {
+            Debug.LogWarning("Sound: " + name + " not found!");
+            return;
+        }
+        s.source.volume = volume;
     }
 }

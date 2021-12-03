@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Object
   - Item
+  - AudioSlider
+  - Enemy
   layers:
   - Default
   - TransparentFX

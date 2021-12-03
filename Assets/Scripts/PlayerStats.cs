@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PlayerStats : CharacterStats {
@@ -53,16 +51,11 @@ public class PlayerStats : CharacterStats {
     }
 
     public override void TakeDamage(float damage) {
-        base.TakeDamage(damage);
-        health.SetHealth(CurrentHealth);
+        //base.TakeDamage(damage);
+        //health.SetHealth(CurrentHealth);
     }
 
     public override void Die() {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        //PlayerManager.KillPlayer();
-        //playerMovement.enabled = false;
-        //mouseLook.enabled = false;
-        //Time.timeScale = 0.1f;
-        //Destroy(gameObject);
     }
 }
